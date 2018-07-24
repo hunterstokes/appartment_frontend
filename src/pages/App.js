@@ -7,8 +7,8 @@ import {
     Nav,
     Button,
 } from 'react-bootstrap';
-import './App.css';
-import {getApartments} from './api/index.js'
+import '../css/App.css';
+import {getApartments} from '../api/index.js'
 
 class App extends Component {
     constructor(props) {
