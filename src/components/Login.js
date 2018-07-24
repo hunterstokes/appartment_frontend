@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../css/Login.css';
+import Header from './Header.js';
+import Footer from './Footer.js';
 
 import AuthService from '../services/AuthService';
 
@@ -28,36 +30,32 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="center">
-        <div className="card">
-          <h1>Login</h1>
-          <form
-            onSubmit={this.handleFormSubmit.bind(this)}
-          >
-            <input
-              className="form-item"
-              placeholder="email goes here..."
-              name="email"
-              type="text"
-              onChange={this.handleChange.bind(this)}
-              value={this.state.email}
-            />
-            <input
-              className="form-item"
-              placeholder="Password goes here..."
-              name="password"
-              type="password"
-              onChange={this.handleChange.bind(this)}
-              value={this.state.password}
-            />
-            <input
-              className="form-submit"
-              value="SUBMIT"
-              type="submit"
-            />
-          </form>
+        <div>
+            <Header />
+            <div className="center">
+                <div className="card">
+                    <h1>Login</h1>
+                <form onSubmit={this.handleFormSubmit.bind(this)}>
+                    <input className="form-item" placeholder="email goes here..." name="email" type="text" onChange={this.handleChange.bind(this)} value={this.state.email}/>
+                    <input
+                      className="form-item"
+                      placeholder="Password goes here..."
+                      name="password"
+                      type="password"
+                      onChange={this.handleChange.bind(this)}
+                      value={this.state.password}
+                    />
+                    <input
+                      className="form-submit"
+                      value="SUBMIT"
+                      type="submit"
+                    />
+                    </form>
+                  </div>
+                </div>
+            <Footer />
         </div>
-      </div>
+
     );
   }
 }

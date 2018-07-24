@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import {
-    Navbar,
-    NavItem,
-    NavDropdown,
-    MenuItem,
-    Nav,
-    Button,
-} from 'react-bootstrap';
+import Header from '../components/Header.js';
+import FooterPage from '../components/Footer.js';
 import '../css/App.css';
-import {getApartments} from '../api/index.js'
+import {getApartments} from '../api/index.js';
+import Login from '../components/Login';
+import { Route, BrowserRouter as Router, Switch} from 'react-router-dom';
+import ApartmentContainer  from '../containers/apartments.js';
+
 
 class App extends Component {
     constructor(props) {
@@ -28,38 +26,19 @@ class App extends Component {
 
     render() {
         return (
-            <Navbar inverse collapseOnSelect>
-              <Navbar.Header>
-                <Navbar.Brand>
-                  <a href="/">Welcome to Appartments!</a>
-                </Navbar.Brand>
-                <Navbar.Toggle />
-              </Navbar.Header>
-              <Navbar.Collapse>
-                <Nav>
-                  <NavItem eventKey={1} href="/contact">
-                    Contact Us
-                  </NavItem>
-                  <NavItem eventKey={2} href="/about">
-                    About Us
-                  </NavItem>
-                  <NavDropdown eventKey={3} title="Apartments" id="basic-nav-dropdown">
-                    <MenuItem eventKey={3.1}><a href="/sale">For Sale</a></MenuItem>
-                    <MenuItem eventKey={3.2}><a href="/rent">For Rent</a></MenuItem>
-                    <MenuItem divider />
-                    <MenuItem eventKey={3.3}>Sell your home</MenuItem>
-                  </NavDropdown>
-                </Nav>
-                <Nav pullRight>
-                  <NavItem eventKey={1} href="#">
-                    Log In
-                  </NavItem>
-                  <NavItem eventKey={2} href="#">
-                    <Button bsStyle="info">Sign Up</Button>
-                  </NavItem>
-                </Nav>
-              </Navbar.Collapse>
-            </Navbar>
+            <div>
+                <Header />
+                <Router>
+                    <div>
+                    <Switch>
+                        <Route path="/apartments" component={ApartmentContainer} />
+                        <Route path="/login" component={Login} />
+                        <Route exact path="/" component={ApartmentContainer} />
+                    </Switch>
+                    </div>
+                </Router>
+                <FooterPage />
+            </div>
         );
     }
 }

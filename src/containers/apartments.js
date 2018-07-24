@@ -34,4 +34,4 @@ class ApartmentContainer extends Component {
     }
 }
 
-export default ApartmentContainer
+export default ApartmentContainer;
