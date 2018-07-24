@@ -5,6 +5,7 @@ import {
     NavDropdown,
     MenuItem,
     Nav,
+    Button,
 } from 'react-bootstrap';
 import './App.css';
 import {getApartments} from './api/index.js'
@@ -54,7 +55,7 @@ class App extends Component {
                     Log In
                   </NavItem>
                   <NavItem eventKey={2} href="#">
-                    Sign Up
+                    <Button bsStyle="info">Sign Up</Button>
                   </NavItem>
                 </Nav>
               </Navbar.Collapse>
