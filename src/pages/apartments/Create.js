@@ -1,10 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { getApartment } from '../../api/index.js'
 
+class Show extends Component {
+	constructor(props) {
+		super()
 
+		this.state = {
+			a: {}
+		}
+	}
 
+	componentWillMount() {
+		getApartment(this.props.match.params.id).then(object => { this.setState({a:object})})
+	}
 
-class Create extends Component {
-
+	render() {
+		let { a } = this.state
+		return (
+			<main>
+				<h1>{a.street1}</h1>
+				<h3>{a.city}, {a.state}, {a.zip}</h3>
+				<h3>{a.phone}</h3>
+				<h3>{a.hours}</h3>
+			</main>
+		)
+	}
 }
 
-export default Create;
+export default Show;

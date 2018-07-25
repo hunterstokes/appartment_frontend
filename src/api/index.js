@@ -9,7 +9,15 @@ let getApartments = function() {
             return json
         })
 }
+let getApartment = function(id) {
+	return fetch(BASE + '/apartments/' + id)
+	.then((resp) => {
+		let json = resp.json()
+		return json
+	})
+}
 
 export  {
-    getApartments
+    getApartments,
+    getApartment
 }
